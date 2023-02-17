@@ -130,3 +130,7 @@ dmypy.json
 
 # Pycharm folder
 .idea
+idea
+
+# Sublime
+flaskblog.sublime-workspace
