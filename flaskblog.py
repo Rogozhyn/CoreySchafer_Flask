@@ -4,10 +4,13 @@ from flask_sqlalchemy import SQLAlchemy
 from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
-
-app.config['SECRET_KEY'] = '0a61ff28cf62c6388d65c03966dc8833'
+app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
+'''As of version SQLAlchemy 3.0 to create your db file you will need to run some commands like this in the shell :
+from flaskblog import app, db
+app.app_context().push()
+db.create_all()'''
 
 
 class User(db.Model):
@@ -19,7 +22,10 @@ class User(db.Model):
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.username}','{self.email}', '{self.image_file}')"
+        return f"User('{self.username}', '{self.email}', '{self.image_file}')"
+
+
+'''user = db.session.get(User, 1)'''
 
 
 class Post(db.Model):
