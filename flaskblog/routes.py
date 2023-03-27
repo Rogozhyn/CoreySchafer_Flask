@@ -17,6 +17,12 @@ posts = [
         'title': 'Blog Post 2',
         'content': 'Second post content',
         'date_posted': 'April 21, 2018'
+    },
+    {
+        'author': 'Mykhailo Rogzhyn',
+        'title': 'Blog Post 3',
+        'content': 'Текст третього посту',
+        'date_posted': 'Март 27, 2023'
     }
 ]
 
