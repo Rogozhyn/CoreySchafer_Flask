@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
-from flaskblog.config import Config
+from flaskblog.config import config
 
 
 db = SQLAlchemy()
@@ -15,9 +15,9 @@ login_manager.login_message_category = 'info'
 mail = Mail()
 
 
-def create_app(config_class=Config):
+def create_app(config_name='default'):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config[config_name])
 
     db.init_app(app)
     bcrypt.init_app(app)
